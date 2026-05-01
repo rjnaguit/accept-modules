@@ -10,7 +10,6 @@
             --navy-bg: #001233; 
             --orange-vibrant: #FF8000; 
             --white: #ffffff;
-            --dark-text: #222222;
             --blue-pop: #0099FF;   
             --red-pop: #FF3333;    
             --green-pop: #00CC44;  
@@ -25,7 +24,6 @@
             position: relative;
         }
 
-        /* Faded Background Layer */
         body::before {
             content: "";
             position: fixed;
@@ -41,24 +39,12 @@
         header {
             padding: 15px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             background: rgba(0, 18, 51, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 4px solid var(--orange-vibrant);
             position: sticky; top: 0; z-index: 1000;
-        }
-
-        /* Institutional Logo - Matches your specific filename */
-        .partner-logos { 
-            display: flex; 
-            gap: 20px; 
-            align-items: center; 
-        }
-        .partner-logos img { 
-            height: 55px; 
-            /* This filter turns the logo pure white to match the theme */
-            filter: brightness(0) invert(1); 
         }
 
         .lang-toggle button {
@@ -67,122 +53,72 @@
             padding: 8px 16px; border-radius: 20px;
             cursor: pointer; font-family: 'Fredoka'; font-weight: 700;
             transition: 0.3s;
+            margin-right: 10px;
         }
-        .lang-toggle button:hover { background: white; color: var(--orange-vibrant); }
 
         .main-wrapper {
             display: flex;
-            min-height: calc(100vh - 100px);
             padding: 40px;
             gap: 50px;
             max-width: 1400px;
             margin: auto;
         }
 
-        .left-panel {
-            flex: 1;
-            position: sticky;
-            top: 120px;
-            height: fit-content;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        /* ACCEPT Logo - Matches your specific filename */
+        .left-panel { flex: 1; position: sticky; top: 120px; height: fit-content; }
+        
         .accept-logo-large { 
             width: 280px; 
-            margin-bottom: 10px;
-            cursor: pointer;
+            margin-bottom: 10px; 
+            display: block;
         }
-
-        .left-panel h1 {
+        
+        .tagline {
             font-size: 2.2rem;
             line-height: 1.1;
-            margin: 0;
+            margin: 0 0 20px 0;
             font-weight: 700;
+            color: var(--white);
         }
 
         .descriptor {
-            font-size: 1.1rem;
-            color: var(--orange-vibrant);
-            line-height: 1.5;
-            font-weight: 500;
-            background: rgba(255, 128, 0, 0.1);
-            padding: 20px;
-            border-radius: 15px;
+            font-size: 1.1rem; color: var(--orange-vibrant); line-height: 1.5;
+            background: rgba(255, 128, 0, 0.1); padding: 20px; border-radius: 15px;
             border-left: 5px solid var(--orange-vibrant);
         }
 
         .right-panel { flex: 1.6; }
 
-        #module-view {
-            display: none;
-            background: var(--white);
-            color: var(--dark-text);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            animation: fadeIn 0.4s ease;
-        }
-
         .cluster { margin-bottom: 18px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
 
         .cluster-header {
-            padding: 22px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 22px; cursor: pointer; font-weight: 700; font-size: 1.25rem;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .cluster-header div { display: flex; align-items: center; }
-        .cluster-header svg { width: 30px; height: 30px; margin-right: 18px; fill: currentColor; }
 
         .cluster-content { background: var(--white); display: none; padding: 5px 0; }
         .cluster-content li {
-            padding: 15px 30px;
-            border-bottom: 1px solid #f2f2f2;
-            cursor: pointer;
-            list-style: none;
-            font-weight: 600;
-            color: var(--navy-bg);
+            padding: 15px 30px; border-bottom: 1px solid #f2f2f2; cursor: pointer;
+            list-style: none; font-weight: 600; color: var(--navy-bg);
             transition: 0.2s;
         }
-        .cluster-content li:hover { background: #fff4e6; color: var(--orange-vibrant); padding-left: 45px; }
+        .cluster-content li:hover { background: #fff4e6; padding-left: 40px; color: var(--orange-vibrant); }
 
-        .blue-c { background: var(--blue-pop); color: white; }
-        .orange-c { background: var(--orange-vibrant); color: white; }
-        .red-c { background: var(--red-pop); color: white; }
-        .green-c { background: var(--green-pop); color: white; }
-
-        .active-label {
-            display: inline-block; padding: 6px 15px; border-radius: 50px;
-            font-size: 0.8rem; font-weight: 800; text-transform: uppercase;
-            margin-bottom: 20px; color: white;
-        }
+        .blue-c { background: var(--blue-pop); }
+        .orange-c { background: var(--orange-vibrant); }
+        .red-c { background: var(--red-pop); }
+        .green-c { background: var(--green-pop); }
 
         .quick-exit {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--orange-vibrant); color: white;
-            padding: 18px 30px; border-radius: 50px;
+            position: fixed; bottom: 30px; right: 30px; background: var(--orange-vibrant);
+            color: white; padding: 18px 30px; border-radius: 50px;
             text-decoration: none; font-weight: 700; z-index: 3000;
-            box-shadow: 0 10px 25px rgba(255, 128, 0, 0.4);
         }
-
-        .back-btn {
-            background: #eee; color: var(--navy-bg); border: none;
-            padding: 10px 20px; border-radius: 12px; cursor: pointer;
-            margin-bottom: 20px; font-family: 'Fredoka'; font-weight: 700;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 1000px) {
             header { flex-direction: column; gap: 15px; }
-            .main-wrapper { flex-direction: column; padding: 20px; }
-            .left-panel { position: static; align-items: center; text-align: center; }
+            .main-wrapper { flex-direction: column; }
+            .left-panel { position: static; text-align: center; }
+            .accept-logo-large { margin-left: auto; margin-right: auto; }
         }
     </style>
 </head>
@@ -194,90 +130,74 @@
         <button onclick="setLang('tl')">TL</button>
         <button onclick="setLang('bi')">BI</button>
     </div>
-    
-    <div class="partner-logos">
-        <img src="Chevening Alumni Logo.png" alt="Chevening Alumni">
-    </div>
 </header>
 
 <div class="main-wrapper">
     <div class="left-panel">
-        <img src="ACCEPT Logo (1).png" alt="ACCEPT Logo" class="accept-logo-large" onclick="showHome()">
-        <h1 id="main-head">For Sensible Drug Conversations</h1>
+        <img src="ACCEPT Logo (1).png" alt="ACCEPT Logo" class="accept-logo-large">
+        <h1 id="main-head" class="tagline">For sensible drug conversations</h1>
         <p class="descriptor" id="site-desc">A safe, non-judgmental space for harm reduction, legal rights, and community health support.</p>
     </div>
 
     <div class="right-panel">
-        <div id="home-view">
-            <div class="cluster">
-                <div class="cluster-header blue-c" onclick="toggleC(this)">
-                    <div><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <span class="cl-name">Foundational Modules</span></div>
-                    <span>▾</span>
-                </div>
-                <div class="cluster-content">
-                    <li onclick="loadMod('A.1')">Module A.1 Mental Health and Substance Use</li>
-                    <li onclick="loadMod('A.2')">Module A.2 The Person and Substance Use</li>
-                    <li onclick="loadMod('A.3')">Module A.3 Introduction to Drugs</li>
-                    <li onclick="loadMod('A.4')">Module A.4 Philippine Drug Laws</li>
-                    <li onclick="loadMod('A.5')">Module A.5 Rights of People Who Use Drugs</li>
-                    <li onclick="loadMod('A.6')">Module A.6 Public Health Approach to Drugs</li>
-                    <li onclick="loadMod('A.7')">Module A.7 Introduction to Harm Reduction</li>
-                    <li onclick="loadMod('A.8')">Module A.8 Facilitating Sensible Drug Conversations</li>
-                </div>
+        <div class="cluster">
+            <div class="cluster-header blue-c" onclick="toggleC(this)">
+                <span>Foundational Modules</span>
+                <span>▾</span>
             </div>
-
-            <div class="cluster">
-                <div class="cluster-header orange-c" onclick="toggleC(this)">
-                    <div><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    <span class="cl-name">Harm Reduction Modules</span></div>
-                    <span>▾</span>
-                </div>
-                <div class="cluster-content">
-                    <li onclick="loadMod('B.1')">Module B.1 Wellness and Drug Use</li>
-                    <li onclick="loadMod('B.2')">Module B.2 Harm Reduction for Injecting</li>
-                    <li onclick="loadMod('B.3')">Module B.3 Harm Reduction for Inhalants</li>
-                    <li onclick="loadMod('B.4')">Module B.4 Harm Reduction for Chemsex</li>
-                    <li onclick="loadMod('B.5')">Module B.5 Overdose Prevention & Management</li>
-                    <li onclick="loadMod('B.6')">Module B.6 Stimulant Overdose (Overamping)</li>
-                </div>
-            </div>
-
-            <div class="cluster">
-                <div class="cluster-header red-c" onclick="toggleC(this)">
-                    <div><svg viewBox="0 0 24 24"><path d="M4.5 11h-2V9H1v6h1.5v-2.5h2V15H6V9H4.5v2zm13.5-2h-3c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h3c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm0 6h-3v-4h3v4zm-7-6H8c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h3v-1.5H8v-4h3V9z"/></svg>
-                    <span class="cl-name">Substance-Specific Modules</span></div>
-                    <span>▾</span>
-                </div>
-                <div class="cluster-content">
-                    <li onclick="loadMod('C.1')">Module C.1 Alcohol</li>
-                    <li onclick="loadMod('C.2')">Module C.2 Methamphetamine (Shabu)</li>
-                    <li onclick="loadMod('C.3')">Module C.3 Cannabis (Marijuana)</li>
-                    <li onclick="loadMod('C.4')">Module C.4 Opioids</li>
-                    <li onclick="loadMod('C.5')">Module C.5 Psychedelics</li>
-                </div>
-            </div>
-
-            <div class="cluster">
-                <div class="cluster-header green-c" onclick="toggleC(this)">
-                    <div><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                    <span class="cl-name">Equity Topics</span></div>
-                    <span>▾</span>
-                </div>
-                <div class="cluster-content">
-                    <li onclick="loadMod('D.1')">Module D.1 Substance Use and Co-infections</li>
-                    <li onclick="loadMod('D.2')">Module D.2 Gender and Harm Reduction</li>
-                    <li onclick="loadMod('D.3')">Module D.3 People Engaged in Sex Work</li>
-                    <li onclick="loadMod('D.4')">Module D.4 Gender Affirming Services</li>
-                    <li onclick="loadMod('D.5')">Module D.5 Supporting Children Who Use Drugs</li>
-                </div>
+            <div class="cluster-content">
+                <li>Module A.1 Mental Health and Substance Use</li>
+                <li>Module A.2 The Person and Substance Use</li>
+                <li>Module A.3 Introduction to Drugs</li>
+                <li>Module A.4 Philippine Drug Laws</li>
+                <li>Module A.5 Rights of People Who Use Drugs</li>
+                <li>Module A.6 Public Health Approach to Drugs</li>
+                <li>Module A.7 Introduction to Harm Reduction</li>
+                <li>Module A.8 Facilitating Sensible Drug Conversations</li>
             </div>
         </div>
 
-        <div id="module-view">
-            <button class="back-btn" onclick="showHome()">← Back to Overview</button>
-            <div id="active-tag" class="active-label"></div>
-            <div id="content-area"></div>
+        <div class="cluster">
+            <div class="cluster-header orange-c" onclick="toggleC(this)">
+                <span>Harm Reduction Modules</span>
+                <span>▾</span>
+            </div>
+            <div class="cluster-content">
+                <li>Module B.1 Wellness and Drug Use</li>
+                <li>Module B.2 Harm Reduction for Injecting</li>
+                <li>Module B.3 Harm Reduction for Inhalants</li>
+                <li>Module B.4 Harm Reduction for Chemsex</li>
+                <li>Module B.5 Overdose Prevention & Management</li>
+                <li>Module B.6 Stimulant Overdose (Overamping)</li>
+            </div>
+        </div>
+
+        <div class="cluster">
+            <div class="cluster-header red-c" onclick="toggleC(this)">
+                <span>Substance-Specific Modules</span>
+                <span>▾</span>
+            </div>
+            <div class="cluster-content">
+                <li>Module C.1 Alcohol</li>
+                <li>Module C.2 Methamphetamine (Shabu)</li>
+                <li>Module C.3 Cannabis (Marijuana)</li>
+                <li>Module C.4 Opioids</li>
+                <li>Module C.5 Psychedelics</li>
+            </div>
+        </div>
+
+        <div class="cluster">
+            <div class="cluster-header green-c" onclick="toggleC(this)">
+                <span>Equity Topics</span>
+                <span>▾</span>
+            </div>
+            <div class="cluster-content">
+                <li>Module D.1 Substance Use and Co-infections</li>
+                <li>Module D.2 Gender and Harm Reduction</li>
+                <li>Module D.3 People Engaged in Sex Work</li>
+                <li>Module D.4 Gender Affirming Services</li>
+                <li>Module D.5 Supporting Children Who Use Drugs</li>
+            </div>
         </div>
     </div>
 </div>
@@ -285,8 +205,6 @@
 <a href="https://google.com" class="quick-exit">QUICK EXIT</a>
 
 <script>
-    let curLang = 'en';
-
     function toggleC(header) {
         const content = header.nextElementSibling;
         const arrow = header.querySelector('span:last-child');
@@ -295,40 +213,14 @@
         arrow.innerText = isOpen ? "▾" : "▴";
     }
 
-    function loadMod(id) {
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('module-view').style.display = 'block';
-        const tag = document.getElementById('active-tag');
-        
-        let clName = ""; let color = "";
-        if(id.startsWith('A')) { clName="Foundational"; color="blue-pop"; }
-        else if(id.startsWith('B')) { clName="Harm Reduction"; color="orange-vibrant"; }
-        else if(id.startsWith('C')) { clName="Substance-Specific"; color="red-pop"; }
-        else { clName="Equity"; color="green-pop"; }
-
-        tag.innerText = clName;
-        tag.style.backgroundColor = `var(--${color})`;
-        document.getElementById('content-area').innerHTML = `<h2>${id} Details Coming Soon</h2><p>Localized community advice for this module is being finalized.</p>`;
-        window.scrollTo(0,0);
-    }
-
-    function showHome() {
-        document.getElementById('home-view').style.display = 'block';
-        document.getElementById('module-view').style.display = 'none';
-    }
-
     function setLang(lang) {
-        curLang = lang;
         const h = document.getElementById('main-head');
         const d = document.getElementById('site-desc');
         if(lang === 'tl') {
-            h.innerText = "Para sa Makatuwirang Usapan Tungkol sa Droga";
-            d.innerText = "Ligtas na lugar para sa harm reduction, karapatang legal, at suporta sa kalusugan.";
-        } else if(lang === 'bi') {
-            h.innerText = "Para sa Makatarungan nga Sugilanon Bahin sa Droga";
-            d.innerText = "Luwas nga dapit para sa harm reduction ug suporta sa komunidad.";
+            h.innerText = "Makatuwirang usapan tungkol sa droga";
+            d.innerText = "Ligtas na lugar para sa lahat, binuo kasama ang komunidad.";
         } else {
-            h.innerText = "For Sensible Drug Conversations";
+            h.innerText = "For sensible drug conversations";
             d.innerText = "A safe, non-judgmental space for harm reduction, legal rights, and community health support.";
         }
     }
