@@ -24,6 +24,7 @@
             position: relative;
         }
 
+        /* Background Overlay */
         body::before {
             content: "";
             position: fixed;
@@ -32,7 +33,7 @@
             background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1600');
             background-size: cover;
             background-position: center;
-            opacity: 0.12; 
+            opacity: 0.15; 
             z-index: -1;
         }
 
@@ -52,8 +53,7 @@
             color: white; border: 2px solid var(--orange-vibrant);
             padding: 8px 16px; border-radius: 20px;
             cursor: pointer; font-family: 'Fredoka'; font-weight: 700;
-            transition: 0.3s;
-            margin-right: 10px;
+            transition: 0.3s; margin-right: 10px;
         }
 
         .main-wrapper {
@@ -67,8 +67,8 @@
         .left-panel { flex: 1; position: sticky; top: 120px; height: fit-content; }
         
         .accept-logo-large { 
-            width: 280px; 
-            margin-bottom: 10px; 
+            width: 320px; 
+            margin-bottom: 15px; 
             display: block;
         }
         
@@ -77,12 +77,11 @@
             line-height: 1.1;
             margin: 0 0 20px 0;
             font-weight: 700;
-            color: var(--white);
         }
 
         .descriptor {
             font-size: 1.1rem; color: var(--orange-vibrant); line-height: 1.5;
-            background: rgba(255, 128, 0, 0.1); padding: 20px; border-radius: 15px;
+            background: rgba(255, 128, 0, 0.1); padding: 25px; border-radius: 15px;
             border-left: 5px solid var(--orange-vibrant);
         }
 
@@ -90,14 +89,15 @@
 
         .cluster { margin-bottom: 18px; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
 
+        /* Title remains visible as the header for the dropdown */
         .cluster-header {
-            padding: 22px; cursor: pointer; font-weight: 700; font-size: 1.25rem;
+            padding: 22px; cursor: pointer; font-weight: 700; font-size: 1.3rem;
             display: flex; align-items: center; justify-content: space-between;
         }
 
         .cluster-content { background: var(--white); display: none; padding: 5px 0; }
         .cluster-content li {
-            padding: 15px 30px; border-bottom: 1px solid #f2f2f2; cursor: pointer;
+            padding: 18px 30px; border-bottom: 1px solid #f2f2f2; cursor: pointer;
             list-style: none; font-weight: 600; color: var(--navy-bg);
             transition: 0.2s;
         }
@@ -115,7 +115,6 @@
         }
 
         @media (max-width: 1000px) {
-            header { flex-direction: column; gap: 15px; }
             .main-wrapper { flex-direction: column; }
             .left-panel { position: static; text-align: center; }
             .accept-logo-large { margin-left: auto; margin-right: auto; }
@@ -219,6 +218,9 @@
         if(lang === 'tl') {
             h.innerText = "Makatuwirang usapan tungkol sa droga";
             d.innerText = "Ligtas na lugar para sa lahat, binuo kasama ang komunidad.";
+        } else if(lang === 'bi') {
+            h.innerText = "Makatarungan nga sugilanon bahin sa droga";
+            d.innerText = "Luwas nga dapit alang sa harm reduction ug suporta sa komunidad.";
         } else {
             h.innerText = "For sensible drug conversations";
             d.innerText = "A safe, non-judgmental space for harm reduction, legal rights, and community health support.";
